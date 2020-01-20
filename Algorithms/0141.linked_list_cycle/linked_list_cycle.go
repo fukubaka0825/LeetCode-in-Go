@@ -15,29 +15,29 @@ type ListNode struct {
    Val int
    Next *ListNode
 }
-//
-//type NodesSeen []*ListNode
-//
-//func hasCycle(head *ListNode) bool {
-//	nodesSeen := NodesSeen{}
-//	for head != nil{
-//		if nodesSeen.contain(head) {
-//			return true
-//		}
-//		nodesSeen = append(nodesSeen,head)
-//		head = head.Next
-//	}
-//	return false
-//}
-//
-//func(n NodesSeen) contain(head *ListNode) bool{
-//	for _,val := range n{
-//		if *val == *head{
-//			return true
-//		}
-//	}
-//	return false
-//}
+
+type NodesSeen []*ListNode
+
+func hasCycle1(head *ListNode) bool {
+	nodesSeen := NodesSeen{}
+	for head != nil{
+		if nodesSeen.contain(head) {
+			return true
+		}
+		nodesSeen = append(nodesSeen,head)
+		head = head.Next
+	}
+	return false
+}
+
+func(n NodesSeen) contain(head *ListNode) bool{
+	for _,val := range n{
+		if *val == *head{
+			return true
+		}
+	}
+	return false
+}
 
 /*
 Approach 2: Two Pointers
@@ -45,7 +45,7 @@ Approach 2: Two Pointers
 time complexity is O(N+K), which is O(n)
 Space complexity : O(1).
 */
-func hasCycle(head *ListNode) bool {
+func hasCycle2(head *ListNode) bool {
 	if head == nil {
 		return false
 	}
