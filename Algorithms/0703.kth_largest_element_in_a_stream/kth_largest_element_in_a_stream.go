@@ -37,7 +37,6 @@ func (kl *KthLargest) Add(val int) int {
 	return kl.heap[0]
 }
 
-
 type intHeap []int
 
 func (h intHeap) Len() int {
