@@ -1,4 +1,4 @@
-package _020_valid_parentheses
+package main
 
 func makeParMap() map[string]string{
 	parMap := make(map[string]string)
@@ -14,7 +14,7 @@ func isValid(s string) bool {
 		char := string(s[i])
 		parMap := makeParMap()
 		if _,ok := parMap[char]; ok{
-			if stack == nil{
+			if len(stack) == 0{
 				return false
 			}
 
@@ -31,5 +31,5 @@ func isValid(s string) bool {
 		//push
 		stack = append(stack,char)
 	}
-	return stack == nil
+	return len(stack) == 0
 }
